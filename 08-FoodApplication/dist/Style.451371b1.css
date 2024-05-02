@@ -1,0 +1,50 @@
+/* header.css */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo {
+    width: 75px;
+    border-radius: 10px;
+    margin: 5px 20px;
+    cursor: pointer;
+}
+
+.nav-items > ul {
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+}
+
+.nav-items > ul > li {
+    padding-left: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.search{
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+.restro-card{
+    margin-top: 10px;
+    height: 300px;
+    width: 200px;
+    background-color: #f7f0f0;
+}
+
+.restro-card:hover{
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.img{
+    width: 90%;
+    padding: 10px 10px 0 10px;
+}
+
+/*# sourceMappingURL=/Style.451371b1.css.map */

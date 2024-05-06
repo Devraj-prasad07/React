@@ -1,54 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RestroCard from "./RestroCard";
-import resList from "../utils/mockData";
 
 const Body = () => {
-  const [filterList, setFilterList] = useState(resList
-  //   [
-  //   {
-  //     type: "restaurant",
-  //     data: {
-  //       id: "121603",
-  //       name: "Kannur Food Point",
-  //       area: "Tavarekere",
-  //       cloudinaryImageId:
-  //         "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7",
-  //       cuisines: ["Kerala", "Chinese"],
-  //       costForTwo: 30000,
-  //       deliveryTime: 24,
-  //       avgRating: "4.5",
-  //     },
-  //   },
-  //   {
-  //     type: "restaurant",
-  //     data: {
-  //       id: "121609",
-  //       name: "MCD",
-  //       area: "Tavarekere",
-  //       cloudinaryImageId:
-  //         "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7",
-  //       cuisines: ["Kerala", "Chinese"],
-  //       costForTwo: 30000,
-  //       deliveryTime: 24,
-  //       avgRating: "3.9",
-  //     },
-  //   },
-  //   {
-  //     type: "restaurant",
-  //     data: {
-  //       id: "121605",
-  //       name: "Baba ka Dhaba",
-  //       area: "Tavarekere",
-  //       cloudinaryImageId:
-  //         "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7",
-  //       cuisines: ["Kerala", "Chinese"],
-  //       costForTwo: 30000,
-  //       deliveryTime: 24,
-  //       avgRating: "4.9",
-  //     },
-  //   },
-  // ]
-);
+  const [filterList, setFilterList] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=22.260423&lng=84.8535844");
+      const json = await data.json();
+      console.log(json);
+      setFilterList(json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
     <div className="body">
@@ -56,7 +25,7 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const dataList = filterList.filter((res) => parseFloat(res.data.avgRating) > 4);
+            const dataList = filterList.filter((restaurant) => parseFloat(restaurant.info.avgRating) > 4);
             setFilterList(dataList);
           }}
         >
@@ -65,7 +34,7 @@ const Body = () => {
       </div>
       <div className="restro-container">
         {filterList.map((restaurant) => (
-          <RestroCard key={restaurant.data.id} resData={restaurant} />
+          <RestroCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>

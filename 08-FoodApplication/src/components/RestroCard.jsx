@@ -10,7 +10,6 @@ const RestroCard = (props) => {
     cuisines,
     avgRating,
     costForTwo,
-    deliveryTime,
     sla,
   } = resData?.info || {};
 

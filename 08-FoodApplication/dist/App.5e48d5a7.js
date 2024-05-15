@@ -28926,10 +28926,21 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 var _constants = require("../utils/constants");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Header = function Header() {
+  var _useState = (0, _react.useState)("LogIn"),
+    _useState2 = _slicedToArray(_useState, 2),
+    btnNameReact = _useState2[0],
+    setBtnNameReact = _useState2[1];
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "header"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -28940,7 +28951,12 @@ var Header = function Header() {
     alt: "Logo"
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "nav-items"
-  }, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, "Home"), /*#__PURE__*/_react.default.createElement("li", null, "About"), /*#__PURE__*/_react.default.createElement("li", null, "Contact Us"), /*#__PURE__*/_react.default.createElement("li", null, "Cart"))));
+  }, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, "Home"), /*#__PURE__*/_react.default.createElement("li", null, "About"), /*#__PURE__*/_react.default.createElement("li", null, "Contact Us"), /*#__PURE__*/_react.default.createElement("li", null, "Cart"), /*#__PURE__*/_react.default.createElement("button", {
+    className: "loginBtn",
+    onClick: function onClick() {
+      btnNameReact === "LogIn" ? setBtnNameReact("LogOut") : setBtnNameReact("LogIn");
+    }
+  }, btnNameReact))));
 };
 var _default = exports.default = Header;
 },{"react":"node_modules/react/index.js","../utils/constants":"src/utils/constants.jsx"}],"src/components/RestroCard.jsx":[function(require,module,exports) {
@@ -28961,7 +28977,6 @@ var RestroCard = function RestroCard(props) {
     cuisines = _ref.cuisines,
     avgRating = _ref.avgRating,
     costForTwo = _ref.costForTwo,
-    deliveryTime = _ref.deliveryTime,
     sla = _ref.sla;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "restro-card"
@@ -28974,7 +28989,54 @@ var RestroCard = function RestroCard(props) {
   })), /*#__PURE__*/_react.default.createElement("h3", null, name), /*#__PURE__*/_react.default.createElement("h4", null, cuisines === null || cuisines === void 0 ? void 0 : cuisines.join(", ")), /*#__PURE__*/_react.default.createElement("h4", null, avgRating, " stars"), /*#__PURE__*/_react.default.createElement("h4", null, costForTwo), /*#__PURE__*/_react.default.createElement("h4", null, sla === null || sla === void 0 ? void 0 : sla.deliveryTime, " minutes"));
 };
 var _default = exports.default = RestroCard;
-},{"react":"node_modules/react/index.js","../utils/constants":"src/utils/constants.jsx"}],"src/components/Body.jsx":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../utils/constants":"src/utils/constants.jsx"}],"src/components/ShimmerUI.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var ShimmerUi = function ShimmerUi() {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }));
+};
+var _default = exports.default = ShimmerUi;
+},{"react":"node_modules/react/index.js"}],"src/components/Body.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28983,6 +29045,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _RestroCard = _interopRequireDefault(require("./RestroCard"));
+var _ShimmerUI = _interopRequireDefault(require("./ShimmerUI"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
@@ -29001,12 +29064,16 @@ var Body = function Body() {
     _useState2 = _slicedToArray(_useState, 2),
     filterList = _useState2[0],
     setFilterList = _useState2[1];
+  var _useState3 = (0, _react.useState)(""),
+    _useState4 = _slicedToArray(_useState3, 2),
+    searchText = _useState4[0],
+    setSearchText = _useState4[1];
   (0, _react.useEffect)(function () {
     fetchData();
   }, []);
   var fetchData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var data, json;
+      var _json$data, data, json;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -29019,47 +29086,65 @@ var Body = function Body() {
             return data.json();
           case 6:
             json = _context.sent;
-            console.log(json);
-            setFilterList(json.data.success.cards[1].gridWidget.gridElements.infoWithStyle.restaurants);
-            _context.next = 14;
+            setFilterList(json === null || json === void 0 || (_json$data = json.data) === null || _json$data === void 0 || (_json$data = _json$data.success) === null || _json$data === void 0 || (_json$data = _json$data.cards[1]) === null || _json$data === void 0 || (_json$data = _json$data.gridWidget) === null || _json$data === void 0 || (_json$data = _json$data.gridElements) === null || _json$data === void 0 || (_json$data = _json$data.infoWithStyle) === null || _json$data === void 0 ? void 0 : _json$data.restaurants);
+            _context.next = 13;
             break;
-          case 11:
-            _context.prev = 11;
+          case 10:
+            _context.prev = 10;
             _context.t0 = _context["catch"](0);
             console.error("Error fetching data:", _context.t0);
-          case 14:
+          case 13:
           case "end":
             return _context.stop();
         }
-      }, _callee, null, [[0, 11]]);
+      }, _callee, null, [[0, 10]]);
     }));
     return function fetchData() {
       return _ref.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return filterList.length === 0 ? /*#__PURE__*/_react.default.createElement(_ShimmerUI.default, null) : /*#__PURE__*/_react.default.createElement("div", {
     className: "body"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "filter"
-  }, /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "search"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "inputContainer"
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    className: "search-box",
+    placeholder: " Search",
+    value: searchText,
+    onChange: function onChange(e) {
+      setSearchText(e.target.value);
+    }
+  })), /*#__PURE__*/_react.default.createElement("button", {
+    className: "search-btn",
+    onClick: function onClick() {
+      console.log(searchText);
+    }
+  }, "Search")), /*#__PURE__*/_react.default.createElement("button", {
     className: "filter-btn",
     onClick: function onClick() {
       var dataList = filterList.filter(function (restaurant) {
-        return parseFloat(restaurant.info.avgRating) > 4;
+        var _restaurant$info;
+        return parseFloat(restaurant === null || restaurant === void 0 || (_restaurant$info = restaurant.info) === null || _restaurant$info === void 0 ? void 0 : _restaurant$info.avgRating) > 4;
       });
       setFilterList(dataList);
     }
   }, "Filter")), /*#__PURE__*/_react.default.createElement("div", {
     className: "restro-container"
   }, filterList.map(function (restaurant) {
+    var _restaurant$info2;
     return /*#__PURE__*/_react.default.createElement(_RestroCard.default, {
-      key: restaurant.info.id,
+      key: restaurant === null || restaurant === void 0 || (_restaurant$info2 = restaurant.info) === null || _restaurant$info2 === void 0 ? void 0 : _restaurant$info2.id,
       resData: restaurant
     });
   })));
 };
 var _default = exports.default = Body;
-},{"react":"node_modules/react/index.js","./RestroCard":"src/components/RestroCard.jsx"}],"src/App.jsx":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./RestroCard":"src/components/RestroCard.jsx","./ShimmerUI":"src/components/ShimmerUI.jsx"}],"src/App.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29099,7 +29184,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59998" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52891" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

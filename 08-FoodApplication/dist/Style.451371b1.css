@@ -236,4 +236,53 @@
         left: -30px;
       }
 
+      .subNavBar{
+        display: flex;
+      }
+
+      .clear-btn{
+        --color: #0077ff;
+        font-family: inherit;
+        display: inline-block;
+        width: 0 1.2em;
+        height: 2.6em;
+        line-height: 2.5em;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 28px 0 0 20px;
+        font-size: 1rem;
+        font-weight: 600;
+        z-index: 1;
+        color: var(--color);
+        border: 2px solid var(--color);
+        border-radius: 6px;
+        position: relative;
+      }
+      
+      .clear-btn::before {
+        position: absolute;
+        content: "";
+        background: var(--color);
+        width: 150px;
+        height: 200px;
+        z-index: -1;
+        border-radius: 50%;
+      }
+      
+      .clear-btn:hover {
+        color: white;
+      }
+      
+      .clear-btn:before {
+        top: 100%;
+        left: 100%;
+        transition: 0.3s all;
+      }
+      
+      .clear-btn:hover::before {
+        top: -30px;
+        left: -30px;
+      }
+      
+
 /*# sourceMappingURL=/Style.451371b1.css.map */

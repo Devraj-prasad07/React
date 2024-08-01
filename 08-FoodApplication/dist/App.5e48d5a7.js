@@ -28916,277 +28916,11 @@ if ("development" === 'production') {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.LOGO_URL = exports.CDN_URL = void 0;
+exports.MENU_API = exports.LOGO_URL = exports.CDN_URL = void 0;
 var LOGO_URL = exports.LOGO_URL = "https://penji.co/wp-content/uploads/2022/08/11.Foodigy-logo.jpg";
 var CDN_URL = exports.CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-},{}],"src/components/Header.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _react = _interopRequireWildcard(require("react"));
-var _constants = require("../utils/constants");
-function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
-function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var Header = function Header() {
-  var _useState = (0, _react.useState)("LogIn"),
-    _useState2 = _slicedToArray(_useState, 2),
-    btnNameReact = _useState2[0],
-    setBtnNameReact = _useState2[1];
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "header"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "logo-container"
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: "logo",
-    src: _constants.LOGO_URL,
-    alt: "Logo"
-  })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "nav-items"
-  }, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, "Home"), /*#__PURE__*/_react.default.createElement("li", null, "About"), /*#__PURE__*/_react.default.createElement("li", null, "Contact Us"), /*#__PURE__*/_react.default.createElement("li", null, "Cart"), /*#__PURE__*/_react.default.createElement("button", {
-    className: "loginBtn",
-    onClick: function onClick() {
-      btnNameReact === "LogIn" ? setBtnNameReact("LogOut") : setBtnNameReact("LogIn");
-    }
-  }, btnNameReact))));
-};
-var _default = exports.default = Header;
-},{"react":"node_modules/react/index.js","../utils/constants":"src/utils/constants.jsx"}],"src/components/RestroCard.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
-var _constants = require("../utils/constants");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var RestroCard = function RestroCard(props) {
-  var resData = props.resData;
-  var _ref = (resData === null || resData === void 0 ? void 0 : resData.info) || {},
-    cloudinaryImageId = _ref.cloudinaryImageId,
-    name = _ref.name,
-    cuisines = _ref.cuisines,
-    avgRating = _ref.avgRating,
-    costForTwo = _ref.costForTwo,
-    sla = _ref.sla;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "restro-card"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "img-container"
-  }, cloudinaryImageId && /*#__PURE__*/_react.default.createElement("img", {
-    className: "res-logo",
-    src: _constants.CDN_URL + cloudinaryImageId,
-    alt: "Restaurant Logo"
-  })), /*#__PURE__*/_react.default.createElement("h3", null, name), /*#__PURE__*/_react.default.createElement("h4", null, cuisines === null || cuisines === void 0 ? void 0 : cuisines.join(", ")), /*#__PURE__*/_react.default.createElement("h4", null, avgRating, " stars"), /*#__PURE__*/_react.default.createElement("h4", null, costForTwo), /*#__PURE__*/_react.default.createElement("h4", null, sla === null || sla === void 0 ? void 0 : sla.deliveryTime, " minutes"));
-};
-var _default = exports.default = RestroCard;
-},{"react":"node_modules/react/index.js","../utils/constants":"src/utils/constants.jsx"}],"src/components/ShimmerUI.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-var ShimmerUi = function ShimmerUi() {
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }), /*#__PURE__*/_react.default.createElement("div", {
-    className: "shimmer-card"
-  }));
-};
-var _default = exports.default = ShimmerUi;
-},{"react":"node_modules/react/index.js"}],"src/components/Body.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _react = _interopRequireWildcard(require("react"));
-var _RestroCard = _interopRequireDefault(require("./RestroCard"));
-var _ShimmerUI = _interopRequireDefault(require("./ShimmerUI"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
-function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator.return && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, catch: function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-var Body = function Body() {
-  var _useState = (0, _react.useState)([]),
-    _useState2 = _slicedToArray(_useState, 2),
-    listOfRestro = _useState2[0],
-    setListOfRestro = _useState2[1];
-  var _useState3 = (0, _react.useState)([]),
-    _useState4 = _slicedToArray(_useState3, 2),
-    filteredList = _useState4[0],
-    setFilteredList = _useState4[1];
-  var _useState5 = (0, _react.useState)(""),
-    _useState6 = _slicedToArray(_useState5, 2),
-    searchText = _useState6[0],
-    setSearchText = _useState6[1];
-  var _useState7 = (0, _react.useState)(false),
-    _useState8 = _slicedToArray(_useState7, 2),
-    isFiltered = _useState8[0],
-    setIsFiltered = _useState8[1];
-  (0, _react.useEffect)(function () {
-    fetchData();
-  }, []);
-  var fetchData = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var _json$data, response, json, restaurants, uniqueRestaurants;
-      return _regeneratorRuntime().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            _context.next = 3;
-            return fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=22.260423&lng=84.8535844");
-          case 3:
-            response = _context.sent;
-            _context.next = 6;
-            return response.json();
-          case 6:
-            json = _context.sent;
-            restaurants = json === null || json === void 0 || (_json$data = json.data) === null || _json$data === void 0 || (_json$data = _json$data.success) === null || _json$data === void 0 ? void 0 : _json$data.cards.flatMap(function (card) {
-              var _card$gridWidget;
-              return (card === null || card === void 0 || (_card$gridWidget = card.gridWidget) === null || _card$gridWidget === void 0 || (_card$gridWidget = _card$gridWidget.gridElements) === null || _card$gridWidget === void 0 || (_card$gridWidget = _card$gridWidget.infoWithStyle) === null || _card$gridWidget === void 0 ? void 0 : _card$gridWidget.restaurants) || [];
-            });
-            uniqueRestaurants = Array.from(new Set(restaurants.map(function (restaurant) {
-              var _restaurant$info;
-              return restaurant === null || restaurant === void 0 || (_restaurant$info = restaurant.info) === null || _restaurant$info === void 0 ? void 0 : _restaurant$info.id;
-            }))).map(function (id) {
-              return restaurants.find(function (restaurant) {
-                var _restaurant$info2;
-                return (restaurant === null || restaurant === void 0 || (_restaurant$info2 = restaurant.info) === null || _restaurant$info2 === void 0 ? void 0 : _restaurant$info2.id) === id;
-              });
-            });
-            setListOfRestro(uniqueRestaurants);
-            _context.next = 15;
-            break;
-          case 12:
-            _context.prev = 12;
-            _context.t0 = _context["catch"](0);
-            console.error("Error fetching data:", _context.t0);
-          case 15:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[0, 12]]);
-    }));
-    return function fetchData() {
-      return _ref.apply(this, arguments);
-    };
-  }();
-  var handleFilter = function handleFilter() {
-    var dataList = listOfRestro.filter(function (restaurant) {
-      var _restaurant$info3;
-      return parseFloat(restaurant === null || restaurant === void 0 || (_restaurant$info3 = restaurant.info) === null || _restaurant$info3 === void 0 ? void 0 : _restaurant$info3.avgRating) < 4;
-    });
-    setFilteredList(dataList);
-    setIsFiltered(true);
-  };
-  var handleSearch = function handleSearch() {
-    var filteredRestro = listOfRestro.filter(function (restaurant) {
-      var _restaurant$info4;
-      return restaurant === null || restaurant === void 0 || (_restaurant$info4 = restaurant.info) === null || _restaurant$info4 === void 0 || (_restaurant$info4 = _restaurant$info4.name) === null || _restaurant$info4 === void 0 ? void 0 : _restaurant$info4.toLowerCase().includes(searchText.toLowerCase());
-    });
-    setFilteredList(filteredRestro);
-    setIsFiltered(true);
-  };
-  var clearFilters = function clearFilters() {
-    setFilteredList([]);
-    setIsFiltered(false);
-  };
-  var handleSearchChange = function handleSearchChange(e) {
-    setSearchText(e.target.value);
-    if (e.target.value === "") {
-      clearFilters();
-    }
-  };
-  return listOfRestro.length === 0 ? /*#__PURE__*/_react.default.createElement(_ShimmerUI.default, null) : /*#__PURE__*/_react.default.createElement("div", {
-    className: "body"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "subNavBar"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "search"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "inputContainer"
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    className: "search-box",
-    placeholder: "Search",
-    value: searchText,
-    onChange: handleSearchChange
-  })), /*#__PURE__*/_react.default.createElement("button", {
-    className: "search-btn",
-    onClick: handleSearch
-  }, "Search")), /*#__PURE__*/_react.default.createElement("div", {
-    className: "filter"
-  }, /*#__PURE__*/_react.default.createElement("button", {
-    className: "filter-btn",
-    onClick: handleFilter
-  }, "Filter"), /*#__PURE__*/_react.default.createElement("button", {
-    className: "clear-btn",
-    onClick: clearFilters
-  }, "Clear Filter"))), /*#__PURE__*/_react.default.createElement("div", {
-    className: "restro-container"
-  }, (isFiltered ? filteredList : listOfRestro).map(function (restaurant) {
-    var _restaurant$info5;
-    return /*#__PURE__*/_react.default.createElement(_RestroCard.default, {
-      key: restaurant === null || restaurant === void 0 || (_restaurant$info5 = restaurant.info) === null || _restaurant$info5 === void 0 ? void 0 : _restaurant$info5.id,
-      resData: restaurant
-    });
-  })));
-};
-var _default = exports.default = Body;
-},{"react":"node_modules/react/index.js","./RestroCard":"src/components/RestroCard.jsx","./ShimmerUI":"src/components/ShimmerUI.jsx"}],"node_modules/@remix-run/router/dist/router.js":[function(require,module,exports) {
+var MENU_API = exports.MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.260423&lng=84.8535844&restaurantId=";
+},{}],"node_modules/@remix-run/router/dist/router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38637,7 +38371,286 @@ function useViewTransitionState(to, opts) {
   return (0, _router.matchPath)(path.pathname, nextPath) != null || (0, _router.matchPath)(path.pathname, currentPath) != null;
 }
 //#endregion
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/dist/index.js","@remix-run/router":"node_modules/@remix-run/router/dist/router.js"}],"src/components/AboutUs.jsx":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","react-router":"node_modules/react-router/dist/index.js","@remix-run/router":"node_modules/@remix-run/router/dist/router.js"}],"src/components/Header.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireWildcard(require("react"));
+var _constants = require("../utils/constants");
+var _reactRouterDom = require("react-router-dom");
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var Header = function Header() {
+  var _useState = (0, _react.useState)("LogIn"),
+    _useState2 = _slicedToArray(_useState, 2),
+    btnNameReact = _useState2[0],
+    setBtnNameReact = _useState2[1];
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "header"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "logo-container"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "logo",
+    src: _constants.LOGO_URL,
+    alt: "Logo"
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "nav-items"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/home"
+  }, "Home")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/about"
+  }, "About")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/contact"
+  }, "Contact Us")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/cart"
+  }, "Cart")), /*#__PURE__*/_react.default.createElement("button", {
+    className: "loginBtn",
+    onClick: function onClick() {
+      btnNameReact === "LogIn" ? setBtnNameReact("LogOut") : setBtnNameReact("LogIn");
+    }
+  }, btnNameReact))));
+};
+var _default = exports.default = Header;
+},{"react":"node_modules/react/index.js","../utils/constants":"src/utils/constants.jsx","react-router-dom":"node_modules/react-router-dom/dist/index.js"}],"src/components/RestroCard.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _constants = require("../utils/constants");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var RestroCard = function RestroCard(props) {
+  var resData = props.resData;
+  var _ref = (resData === null || resData === void 0 ? void 0 : resData.info) || {},
+    cloudinaryImageId = _ref.cloudinaryImageId,
+    name = _ref.name,
+    cuisines = _ref.cuisines,
+    avgRating = _ref.avgRating,
+    costForTwo = _ref.costForTwo,
+    sla = _ref.sla;
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "restro-card"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "img-container"
+  }, cloudinaryImageId && /*#__PURE__*/_react.default.createElement("img", {
+    className: "res-logo",
+    src: _constants.CDN_URL + cloudinaryImageId,
+    alt: "Restaurant Logo"
+  })), /*#__PURE__*/_react.default.createElement("h3", null, name), /*#__PURE__*/_react.default.createElement("h4", null, cuisines === null || cuisines === void 0 ? void 0 : cuisines.join(", ")), /*#__PURE__*/_react.default.createElement("h4", null, avgRating, " stars"), /*#__PURE__*/_react.default.createElement("h4", null, costForTwo), /*#__PURE__*/_react.default.createElement("h4", null, sla === null || sla === void 0 ? void 0 : sla.deliveryTime, " minutes"));
+};
+var _default = exports.default = RestroCard;
+},{"react":"node_modules/react/index.js","../utils/constants":"src/utils/constants.jsx"}],"src/components/ShimmerUI.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var ShimmerUi = function ShimmerUi() {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "shimmer-card"
+  }));
+};
+var _default = exports.default = ShimmerUi;
+},{"react":"node_modules/react/index.js"}],"src/components/Body.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireWildcard(require("react"));
+var _RestroCard = _interopRequireDefault(require("./RestroCard"));
+var _ShimmerUI = _interopRequireDefault(require("./ShimmerUI"));
+var _reactRouterDom = require("react-router-dom");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator.return && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, catch: function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var Body = function Body() {
+  var _useState = (0, _react.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    listOfRestro = _useState2[0],
+    setListOfRestro = _useState2[1];
+  var _useState3 = (0, _react.useState)([]),
+    _useState4 = _slicedToArray(_useState3, 2),
+    filteredList = _useState4[0],
+    setFilteredList = _useState4[1];
+  var _useState5 = (0, _react.useState)(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    searchText = _useState6[0],
+    setSearchText = _useState6[1];
+  var _useState7 = (0, _react.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    isFiltered = _useState8[0],
+    setIsFiltered = _useState8[1];
+  (0, _react.useEffect)(function () {
+    fetchData();
+  }, []);
+  var fetchData = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var _json$data, response, json, restaurants, uniqueRestaurants;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=22.260423&lng=84.8535844");
+          case 3:
+            response = _context.sent;
+            _context.next = 6;
+            return response.json();
+          case 6:
+            json = _context.sent;
+            restaurants = json === null || json === void 0 || (_json$data = json.data) === null || _json$data === void 0 || (_json$data = _json$data.success) === null || _json$data === void 0 ? void 0 : _json$data.cards.flatMap(function (card) {
+              var _card$gridWidget;
+              return (card === null || card === void 0 || (_card$gridWidget = card.gridWidget) === null || _card$gridWidget === void 0 || (_card$gridWidget = _card$gridWidget.gridElements) === null || _card$gridWidget === void 0 || (_card$gridWidget = _card$gridWidget.infoWithStyle) === null || _card$gridWidget === void 0 ? void 0 : _card$gridWidget.restaurants) || [];
+            });
+            uniqueRestaurants = Array.from(new Set(restaurants.map(function (restaurant) {
+              var _restaurant$info;
+              return restaurant === null || restaurant === void 0 || (_restaurant$info = restaurant.info) === null || _restaurant$info === void 0 ? void 0 : _restaurant$info.id;
+            }))).map(function (id) {
+              return restaurants.find(function (restaurant) {
+                var _restaurant$info2;
+                return (restaurant === null || restaurant === void 0 || (_restaurant$info2 = restaurant.info) === null || _restaurant$info2 === void 0 ? void 0 : _restaurant$info2.id) === id;
+              });
+            });
+            setListOfRestro(uniqueRestaurants);
+            _context.next = 15;
+            break;
+          case 12:
+            _context.prev = 12;
+            _context.t0 = _context["catch"](0);
+            console.error("Error fetching data:", _context.t0);
+          case 15:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee, null, [[0, 12]]);
+    }));
+    return function fetchData() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  var handleFilter = function handleFilter() {
+    var dataList = listOfRestro.filter(function (restaurant) {
+      var _restaurant$info3;
+      return parseFloat(restaurant === null || restaurant === void 0 || (_restaurant$info3 = restaurant.info) === null || _restaurant$info3 === void 0 ? void 0 : _restaurant$info3.avgRating) < 4;
+    });
+    setFilteredList(dataList);
+    setIsFiltered(true);
+  };
+  var handleSearch = function handleSearch() {
+    var filteredRestro = listOfRestro.filter(function (restaurant) {
+      var _restaurant$info4;
+      return restaurant === null || restaurant === void 0 || (_restaurant$info4 = restaurant.info) === null || _restaurant$info4 === void 0 || (_restaurant$info4 = _restaurant$info4.name) === null || _restaurant$info4 === void 0 ? void 0 : _restaurant$info4.toLowerCase().includes(searchText.toLowerCase());
+    });
+    setFilteredList(filteredRestro);
+    setIsFiltered(true);
+  };
+  var clearFilters = function clearFilters() {
+    setFilteredList([]);
+    setIsFiltered(false);
+  };
+  var handleSearchChange = function handleSearchChange(e) {
+    setSearchText(e.target.value);
+    if (e.target.value === "") {
+      clearFilters();
+    }
+  };
+  return listOfRestro.length === 0 ? /*#__PURE__*/_react.default.createElement(_ShimmerUI.default, null) : /*#__PURE__*/_react.default.createElement("div", {
+    className: "body"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "subNavBar"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "search"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "inputContainer"
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    className: "search-box",
+    placeholder: "Search",
+    value: searchText,
+    onChange: handleSearchChange
+  })), /*#__PURE__*/_react.default.createElement("button", {
+    className: "search-btn",
+    onClick: handleSearch
+  }, "Search")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "filter"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    className: "filter-btn",
+    onClick: handleFilter
+  }, "Filter"), /*#__PURE__*/_react.default.createElement("button", {
+    className: "clear-btn",
+    onClick: clearFilters
+  }, "Clear Filter"))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "restro-container"
+  }, (isFiltered ? filteredList : listOfRestro).map(function (restaurant) {
+    var _restaurant$info5, _restaurant$info6;
+    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      key: restaurant === null || restaurant === void 0 || (_restaurant$info5 = restaurant.info) === null || _restaurant$info5 === void 0 ? void 0 : _restaurant$info5.id,
+      to: "/restaurants/" + (restaurant === null || restaurant === void 0 || (_restaurant$info6 = restaurant.info) === null || _restaurant$info6 === void 0 ? void 0 : _restaurant$info6.id)
+    }, " ", /*#__PURE__*/_react.default.createElement(_RestroCard.default, {
+      resData: restaurant
+    }));
+  })));
+};
+var _default = exports.default = Body;
+},{"react":"node_modules/react/index.js","./RestroCard":"src/components/RestroCard.jsx","./ShimmerUI":"src/components/ShimmerUI.jsx","react-router-dom":"node_modules/react-router-dom/dist/index.js"}],"src/components/AboutUs.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38678,7 +38691,211 @@ var Error = function Error() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, " Error ", err.status, " : ", err.statusText, " "));
 };
 var _default = exports.default = Error;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/dist/index.js"}],"src/App.jsx":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/dist/index.js"}],"src/components/Cart.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var Cart = function Cart() {
+  return /*#__PURE__*/_react.default.createElement("div", null, "Cart");
+};
+var _default = exports.default = Cart;
+},{"react":"node_modules/react/index.js"}],"src/components/RestaurantsMenu.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireWildcard(require("react"));
+var _ShimmerUI = _interopRequireDefault(require("./ShimmerUI"));
+var _reactRouterDom = require("react-router-dom");
+var _constants = require("../utils/constants");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator.return && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, catch: function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var RestaurantsCard = function RestaurantsCard() {
+  var _resInfo$cards, _resInfo$cards2, _menuInfo$, _menuInfo$2, _menuInfo$3, _menuInfo$4, _menuInfo$5, _menuInfo$6, _menuInfo$7, _menuInfo$8, _menuInfo$9, _menuInfo$10, _cardInfo$cuisines, _cardInfo$sla, _cardInfo$feeDetails, _menuInfo$11, _menuInfo$12, _menuInfo$13, _menuInfo$14, _menuInfo$15, _menuInfo$16, _menuInfo$17, _menuInfo$18, _menuInfo$19, _menuInfo$20;
+  var _useState = (0, _react.useState)(null),
+    _useState2 = _slicedToArray(_useState, 2),
+    resInfo = _useState2[0],
+    setResInfo = _useState2[1];
+  var _useParams = (0, _reactRouterDom.useParams)(),
+    resID = _useParams.resID;
+  (0, _react.useEffect)(function () {
+    fetchMenu();
+  }, []);
+  var fetchMenu = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var response, data;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return fetch(_constants.MENU_API + resID);
+          case 3:
+            response = _context.sent;
+            _context.next = 6;
+            return response.json();
+          case 6:
+            data = _context.sent;
+            setResInfo(data.data);
+            _context.next = 13;
+            break;
+          case 10:
+            _context.prev = 10;
+            _context.t0 = _context["catch"](0);
+            console.error("Error fetching menu:", _context.t0);
+          case 13:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee, null, [[0, 10]]);
+    }));
+    return function fetchMenu() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  if (!resInfo) {
+    return /*#__PURE__*/_react.default.createElement(_ShimmerUI.default, null);
+  }
+  var cardInfo = ((_resInfo$cards = resInfo.cards) === null || _resInfo$cards === void 0 || (_resInfo$cards = _resInfo$cards[2]) === null || _resInfo$cards === void 0 || (_resInfo$cards = _resInfo$cards.card) === null || _resInfo$cards === void 0 || (_resInfo$cards = _resInfo$cards.card) === null || _resInfo$cards === void 0 ? void 0 : _resInfo$cards.info) || {};
+  var menuInfo = ((_resInfo$cards2 = resInfo.cards) === null || _resInfo$cards2 === void 0 || (_resInfo$cards2 = _resInfo$cards2[5]) === null || _resInfo$cards2 === void 0 || (_resInfo$cards2 = _resInfo$cards2.groupedCard) === null || _resInfo$cards2 === void 0 || (_resInfo$cards2 = _resInfo$cards2.cardGroupMap) === null || _resInfo$cards2 === void 0 || (_resInfo$cards2 = _resInfo$cards2.REGULAR) === null || _resInfo$cards2 === void 0 ? void 0 : _resInfo$cards2.cards) || [];
+  var MENU1 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$ = menuInfo[2]) === null || _menuInfo$ === void 0 || (_menuInfo$ = _menuInfo$.card) === null || _menuInfo$ === void 0 || (_menuInfo$ = _menuInfo$.card) === null || _menuInfo$ === void 0 ? void 0 : _menuInfo$.itemCards) || [];
+  var MENU2 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$2 = menuInfo[3]) === null || _menuInfo$2 === void 0 || (_menuInfo$2 = _menuInfo$2.card) === null || _menuInfo$2 === void 0 || (_menuInfo$2 = _menuInfo$2.card) === null || _menuInfo$2 === void 0 ? void 0 : _menuInfo$2.itemCards) || [];
+  var MENU3 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$3 = menuInfo[4]) === null || _menuInfo$3 === void 0 || (_menuInfo$3 = _menuInfo$3.card) === null || _menuInfo$3 === void 0 || (_menuInfo$3 = _menuInfo$3.card) === null || _menuInfo$3 === void 0 ? void 0 : _menuInfo$3.itemCards) || [];
+  var MENU4 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$4 = menuInfo[5]) === null || _menuInfo$4 === void 0 || (_menuInfo$4 = _menuInfo$4.card) === null || _menuInfo$4 === void 0 || (_menuInfo$4 = _menuInfo$4.card) === null || _menuInfo$4 === void 0 ? void 0 : _menuInfo$4.itemCards) || [];
+  var MENU5 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$5 = menuInfo[6]) === null || _menuInfo$5 === void 0 || (_menuInfo$5 = _menuInfo$5.card) === null || _menuInfo$5 === void 0 || (_menuInfo$5 = _menuInfo$5.card) === null || _menuInfo$5 === void 0 ? void 0 : _menuInfo$5.itemCards) || [];
+  var MENU6 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$6 = menuInfo[7]) === null || _menuInfo$6 === void 0 || (_menuInfo$6 = _menuInfo$6.card) === null || _menuInfo$6 === void 0 || (_menuInfo$6 = _menuInfo$6.card) === null || _menuInfo$6 === void 0 ? void 0 : _menuInfo$6.itemCards) || [];
+  var MENU7 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$7 = menuInfo[8]) === null || _menuInfo$7 === void 0 || (_menuInfo$7 = _menuInfo$7.card) === null || _menuInfo$7 === void 0 || (_menuInfo$7 = _menuInfo$7.card) === null || _menuInfo$7 === void 0 ? void 0 : _menuInfo$7.itemCards) || [];
+  var MENU8 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$8 = menuInfo[9]) === null || _menuInfo$8 === void 0 || (_menuInfo$8 = _menuInfo$8.card) === null || _menuInfo$8 === void 0 || (_menuInfo$8 = _menuInfo$8.card) === null || _menuInfo$8 === void 0 ? void 0 : _menuInfo$8.itemCards) || [];
+  var MENU9 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$9 = menuInfo[10]) === null || _menuInfo$9 === void 0 || (_menuInfo$9 = _menuInfo$9.card) === null || _menuInfo$9 === void 0 || (_menuInfo$9 = _menuInfo$9.card) === null || _menuInfo$9 === void 0 ? void 0 : _menuInfo$9.itemCards) || [];
+  var MENU10 = (menuInfo === null || menuInfo === void 0 || (_menuInfo$10 = menuInfo[11]) === null || _menuInfo$10 === void 0 || (_menuInfo$10 = _menuInfo$10.card) === null || _menuInfo$10 === void 0 || (_menuInfo$10 = _menuInfo$10.card) === null || _menuInfo$10 === void 0 ? void 0 : _menuInfo$10.itemCards) || [];
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "menu"
+  }, /*#__PURE__*/_react.default.createElement("h2", null, (cardInfo === null || cardInfo === void 0 ? void 0 : cardInfo.name) || "Name not available"), /*#__PURE__*/_react.default.createElement("h4", null, (cardInfo === null || cardInfo === void 0 ? void 0 : cardInfo.avgRating) || "No rating", " (", (cardInfo === null || cardInfo === void 0 ? void 0 : cardInfo.totalRatingsString) || "No ratings", ") \u25CF", " ", (cardInfo === null || cardInfo === void 0 ? void 0 : cardInfo.costForTwoMessage) || "Cost information not available"), /*#__PURE__*/_react.default.createElement("ul", null, cardInfo === null || cardInfo === void 0 || (_cardInfo$cuisines = cardInfo.cuisines) === null || _cardInfo$cuisines === void 0 ? void 0 : _cardInfo$cuisines.map(function (cuisine, index, array) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, {
+      key: index
+    }, /*#__PURE__*/_react.default.createElement("b", {
+      style: {
+        color: "#FF5200",
+        textDecoration: "underline",
+        cursor: "pointer"
+      }
+    }, cuisine), index < array.length - 1 && /*#__PURE__*/_react.default.createElement("span", {
+      style: {
+        color: "#FF5200"
+      }
+    }, ", "));
+  })), /*#__PURE__*/_react.default.createElement("ul", null, "Outlet \xA0 ", (cardInfo === null || cardInfo === void 0 ? void 0 : cardInfo.areaName) || "Area information not available"), /*#__PURE__*/_react.default.createElement("ul", null, (cardInfo === null || cardInfo === void 0 || (_cardInfo$sla = cardInfo.sla) === null || _cardInfo$sla === void 0 ? void 0 : _cardInfo$sla.slaString) || "SLA information not available"), /*#__PURE__*/_react.default.createElement("p", null, (cardInfo === null || cardInfo === void 0 || (_cardInfo$feeDetails = cardInfo.feeDetails) === null || _cardInfo$feeDetails === void 0 ? void 0 : _cardInfo$feeDetails.message) || "Fee details not available"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_1"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, menuInfo === null || menuInfo === void 0 || (_menuInfo$11 = menuInfo[2]) === null || _menuInfo$11 === void 0 || (_menuInfo$11 = _menuInfo$11.card) === null || _menuInfo$11 === void 0 || (_menuInfo$11 = _menuInfo$11.card) === null || _menuInfo$11 === void 0 ? void 0 : _menuInfo$11.title, "(", MENU1.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_1_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU1.map(function (item) {
+    var _item$card, _item$card2, _item$card3, _item$card4;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card = item.card) === null || _item$card === void 0 || (_item$card = _item$card.info) === null || _item$card === void 0 ? void 0 : _item$card.id
+    }, (item === null || item === void 0 || (_item$card2 = item.card) === null || _item$card2 === void 0 || (_item$card2 = _item$card2.info) === null || _item$card2 === void 0 ? void 0 : _item$card2.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card3 = item.card) === null || _item$card3 === void 0 || (_item$card3 = _item$card3.info) === null || _item$card3 === void 0 ? void 0 : _item$card3.price) / 100 || (item === null || item === void 0 || (_item$card4 = item.card) === null || _item$card4 === void 0 || (_item$card4 = _item$card4.info) === null || _item$card4 === void 0 ? void 0 : _item$card4.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_2"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, menuInfo === null || menuInfo === void 0 || (_menuInfo$12 = menuInfo[3]) === null || _menuInfo$12 === void 0 || (_menuInfo$12 = _menuInfo$12.card) === null || _menuInfo$12 === void 0 || (_menuInfo$12 = _menuInfo$12.card) === null || _menuInfo$12 === void 0 ? void 0 : _menuInfo$12.title, " (", MENU2 === null || MENU2 === void 0 ? void 0 : MENU2.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_2_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU2.map(function (item) {
+    var _item$card5, _item$card6, _item$card7, _item$card8;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card5 = item.card) === null || _item$card5 === void 0 || (_item$card5 = _item$card5.info) === null || _item$card5 === void 0 ? void 0 : _item$card5.id
+    }, (item === null || item === void 0 || (_item$card6 = item.card) === null || _item$card6 === void 0 || (_item$card6 = _item$card6.info) === null || _item$card6 === void 0 ? void 0 : _item$card6.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card7 = item.card) === null || _item$card7 === void 0 || (_item$card7 = _item$card7.info) === null || _item$card7 === void 0 ? void 0 : _item$card7.price) / 100 || (item === null || item === void 0 || (_item$card8 = item.card) === null || _item$card8 === void 0 || (_item$card8 = _item$card8.info) === null || _item$card8 === void 0 ? void 0 : _item$card8.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_3"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, menuInfo === null || menuInfo === void 0 || (_menuInfo$13 = menuInfo[4]) === null || _menuInfo$13 === void 0 || (_menuInfo$13 = _menuInfo$13.card) === null || _menuInfo$13 === void 0 || (_menuInfo$13 = _menuInfo$13.card) === null || _menuInfo$13 === void 0 ? void 0 : _menuInfo$13.title, " (", MENU3 === null || MENU3 === void 0 ? void 0 : MENU3.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_3_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU3.map(function (item) {
+    var _item$card9, _item$card10, _item$card11, _item$card12;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card9 = item.card) === null || _item$card9 === void 0 || (_item$card9 = _item$card9.info) === null || _item$card9 === void 0 ? void 0 : _item$card9.id
+    }, (item === null || item === void 0 || (_item$card10 = item.card) === null || _item$card10 === void 0 || (_item$card10 = _item$card10.info) === null || _item$card10 === void 0 ? void 0 : _item$card10.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card11 = item.card) === null || _item$card11 === void 0 || (_item$card11 = _item$card11.info) === null || _item$card11 === void 0 ? void 0 : _item$card11.price) / 100 || (item === null || item === void 0 || (_item$card12 = item.card) === null || _item$card12 === void 0 || (_item$card12 = _item$card12.info) === null || _item$card12 === void 0 ? void 0 : _item$card12.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_4"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", menuInfo === null || menuInfo === void 0 || (_menuInfo$14 = menuInfo[5]) === null || _menuInfo$14 === void 0 || (_menuInfo$14 = _menuInfo$14.card) === null || _menuInfo$14 === void 0 || (_menuInfo$14 = _menuInfo$14.card) === null || _menuInfo$14 === void 0 ? void 0 : _menuInfo$14.title, " (", MENU4 === null || MENU4 === void 0 ? void 0 : MENU4.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_4_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU4.map(function (item) {
+    var _item$card13, _item$card14, _item$card15, _item$card16;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card13 = item.card) === null || _item$card13 === void 0 || (_item$card13 = _item$card13.info) === null || _item$card13 === void 0 ? void 0 : _item$card13.id
+    }, (item === null || item === void 0 || (_item$card14 = item.card) === null || _item$card14 === void 0 || (_item$card14 = _item$card14.info) === null || _item$card14 === void 0 ? void 0 : _item$card14.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card15 = item.card) === null || _item$card15 === void 0 || (_item$card15 = _item$card15.info) === null || _item$card15 === void 0 ? void 0 : _item$card15.price) / 100 || (item === null || item === void 0 || (_item$card16 = item.card) === null || _item$card16 === void 0 || (_item$card16 = _item$card16.info) === null || _item$card16 === void 0 ? void 0 : _item$card16.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_5"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", menuInfo === null || menuInfo === void 0 || (_menuInfo$15 = menuInfo[5]) === null || _menuInfo$15 === void 0 || (_menuInfo$15 = _menuInfo$15.card) === null || _menuInfo$15 === void 0 || (_menuInfo$15 = _menuInfo$15.card) === null || _menuInfo$15 === void 0 ? void 0 : _menuInfo$15.title, " (", MENU5 === null || MENU5 === void 0 ? void 0 : MENU5.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_5_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU4.map(function (item) {
+    var _item$card17, _item$card18, _item$card19, _item$card20;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card17 = item.card) === null || _item$card17 === void 0 || (_item$card17 = _item$card17.info) === null || _item$card17 === void 0 ? void 0 : _item$card17.id
+    }, (item === null || item === void 0 || (_item$card18 = item.card) === null || _item$card18 === void 0 || (_item$card18 = _item$card18.info) === null || _item$card18 === void 0 ? void 0 : _item$card18.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card19 = item.card) === null || _item$card19 === void 0 || (_item$card19 = _item$card19.info) === null || _item$card19 === void 0 ? void 0 : _item$card19.price) / 100 || (item === null || item === void 0 || (_item$card20 = item.card) === null || _item$card20 === void 0 || (_item$card20 = _item$card20.info) === null || _item$card20 === void 0 ? void 0 : _item$card20.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_6"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", menuInfo === null || menuInfo === void 0 || (_menuInfo$16 = menuInfo[5]) === null || _menuInfo$16 === void 0 || (_menuInfo$16 = _menuInfo$16.card) === null || _menuInfo$16 === void 0 || (_menuInfo$16 = _menuInfo$16.card) === null || _menuInfo$16 === void 0 ? void 0 : _menuInfo$16.title, " (", MENU6 === null || MENU6 === void 0 ? void 0 : MENU6.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_6_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU4.map(function (item) {
+    var _item$card21, _item$card22, _item$card23, _item$card24;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card21 = item.card) === null || _item$card21 === void 0 || (_item$card21 = _item$card21.info) === null || _item$card21 === void 0 ? void 0 : _item$card21.id
+    }, (item === null || item === void 0 || (_item$card22 = item.card) === null || _item$card22 === void 0 || (_item$card22 = _item$card22.info) === null || _item$card22 === void 0 ? void 0 : _item$card22.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card23 = item.card) === null || _item$card23 === void 0 || (_item$card23 = _item$card23.info) === null || _item$card23 === void 0 ? void 0 : _item$card23.price) / 100 || (item === null || item === void 0 || (_item$card24 = item.card) === null || _item$card24 === void 0 || (_item$card24 = _item$card24.info) === null || _item$card24 === void 0 ? void 0 : _item$card24.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_7"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", menuInfo === null || menuInfo === void 0 || (_menuInfo$17 = menuInfo[5]) === null || _menuInfo$17 === void 0 || (_menuInfo$17 = _menuInfo$17.card) === null || _menuInfo$17 === void 0 || (_menuInfo$17 = _menuInfo$17.card) === null || _menuInfo$17 === void 0 ? void 0 : _menuInfo$17.title, " (", MENU7 === null || MENU7 === void 0 ? void 0 : MENU7.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_7_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU4.map(function (item) {
+    var _item$card25, _item$card26, _item$card27, _item$card28;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card25 = item.card) === null || _item$card25 === void 0 || (_item$card25 = _item$card25.info) === null || _item$card25 === void 0 ? void 0 : _item$card25.id
+    }, (item === null || item === void 0 || (_item$card26 = item.card) === null || _item$card26 === void 0 || (_item$card26 = _item$card26.info) === null || _item$card26 === void 0 ? void 0 : _item$card26.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card27 = item.card) === null || _item$card27 === void 0 || (_item$card27 = _item$card27.info) === null || _item$card27 === void 0 ? void 0 : _item$card27.price) / 100 || (item === null || item === void 0 || (_item$card28 = item.card) === null || _item$card28 === void 0 || (_item$card28 = _item$card28.info) === null || _item$card28 === void 0 ? void 0 : _item$card28.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_8"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", menuInfo === null || menuInfo === void 0 || (_menuInfo$18 = menuInfo[5]) === null || _menuInfo$18 === void 0 || (_menuInfo$18 = _menuInfo$18.card) === null || _menuInfo$18 === void 0 || (_menuInfo$18 = _menuInfo$18.card) === null || _menuInfo$18 === void 0 ? void 0 : _menuInfo$18.title, " (", MENU8 === null || MENU8 === void 0 ? void 0 : MENU8.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_8_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU4.map(function (item) {
+    var _item$card29, _item$card30, _item$card31, _item$card32;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card29 = item.card) === null || _item$card29 === void 0 || (_item$card29 = _item$card29.info) === null || _item$card29 === void 0 ? void 0 : _item$card29.id
+    }, (item === null || item === void 0 || (_item$card30 = item.card) === null || _item$card30 === void 0 || (_item$card30 = _item$card30.info) === null || _item$card30 === void 0 ? void 0 : _item$card30.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card31 = item.card) === null || _item$card31 === void 0 || (_item$card31 = _item$card31.info) === null || _item$card31 === void 0 ? void 0 : _item$card31.price) / 100 || (item === null || item === void 0 || (_item$card32 = item.card) === null || _item$card32 === void 0 || (_item$card32 = _item$card32.info) === null || _item$card32 === void 0 ? void 0 : _item$card32.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_9"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", menuInfo === null || menuInfo === void 0 || (_menuInfo$19 = menuInfo[5]) === null || _menuInfo$19 === void 0 || (_menuInfo$19 = _menuInfo$19.card) === null || _menuInfo$19 === void 0 || (_menuInfo$19 = _menuInfo$19.card) === null || _menuInfo$19 === void 0 ? void 0 : _menuInfo$19.title, " (", MENU9 === null || MENU9 === void 0 ? void 0 : MENU9.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_9_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU4.map(function (item) {
+    var _item$card33, _item$card34, _item$card35, _item$card36;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card33 = item.card) === null || _item$card33 === void 0 || (_item$card33 = _item$card33.info) === null || _item$card33 === void 0 ? void 0 : _item$card33.id
+    }, (item === null || item === void 0 || (_item$card34 = item.card) === null || _item$card34 === void 0 || (_item$card34 = _item$card34.info) === null || _item$card34 === void 0 ? void 0 : _item$card34.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card35 = item.card) === null || _item$card35 === void 0 || (_item$card35 = _item$card35.info) === null || _item$card35 === void 0 ? void 0 : _item$card35.price) / 100 || (item === null || item === void 0 || (_item$card36 = item.card) === null || _item$card36 === void 0 || (_item$card36 = _item$card36.info) === null || _item$card36 === void 0 ? void 0 : _item$card36.defaultPrice) / 100 || "Price not available");
+  })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_10"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", menuInfo === null || menuInfo === void 0 || (_menuInfo$20 = menuInfo[5]) === null || _menuInfo$20 === void 0 || (_menuInfo$20 = _menuInfo$20.card) === null || _menuInfo$20 === void 0 || (_menuInfo$20 = _menuInfo$20.card) === null || _menuInfo$20 === void 0 ? void 0 : _menuInfo$20.title, " (", MENU10 === null || MENU10 === void 0 ? void 0 : MENU10.length, ")"), /*#__PURE__*/_react.default.createElement("div", {
+    className: "Menu_10_info"
+  }, /*#__PURE__*/_react.default.createElement("ul", null, MENU4.map(function (item) {
+    var _item$card37, _item$card38, _item$card39, _item$card40;
+    return /*#__PURE__*/_react.default.createElement("li", {
+      key: item === null || item === void 0 || (_item$card37 = item.card) === null || _item$card37 === void 0 || (_item$card37 = _item$card37.info) === null || _item$card37 === void 0 ? void 0 : _item$card37.id
+    }, (item === null || item === void 0 || (_item$card38 = item.card) === null || _item$card38 === void 0 || (_item$card38 = _item$card38.info) === null || _item$card38 === void 0 ? void 0 : _item$card38.name) || "Item name not available", " for", " ", (item === null || item === void 0 || (_item$card39 = item.card) === null || _item$card39 === void 0 || (_item$card39 = _item$card39.info) === null || _item$card39 === void 0 ? void 0 : _item$card39.price) / 100 || (item === null || item === void 0 || (_item$card40 = item.card) === null || _item$card40 === void 0 || (_item$card40 = _item$card40.info) === null || _item$card40 === void 0 ? void 0 : _item$card40.defaultPrice) / 100 || "Price not available");
+  })))));
+};
+var _default = exports.default = RestaurantsCard;
+},{"react":"node_modules/react/index.js","./ShimmerUI":"src/components/ShimmerUI.jsx","react-router-dom":"node_modules/react-router-dom/dist/index.js","../utils/constants":"src/utils/constants.jsx"}],"src/App.jsx":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -38689,6 +38906,8 @@ var _reactRouterDom = require("react-router-dom");
 var _AboutUs = _interopRequireDefault(require("./components/AboutUs"));
 var _ContactUs = _interopRequireDefault(require("./components/ContactUs"));
 var _Error = _interopRequireDefault(require("./components/Error"));
+var _Cart = _interopRequireDefault(require("./components/Cart"));
+var _RestaurantsMenu = _interopRequireDefault(require("./components/RestaurantsMenu"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var root = document.getElementById("root");
 var App = function App() {
@@ -38706,18 +38925,24 @@ var appRouter = (0, _reactRouterDom.createBrowserRouter)([{
     path: '/home',
     element: /*#__PURE__*/_react.default.createElement(_Body.default, null)
   }, {
-    path: 'about',
+    path: '/about',
     element: /*#__PURE__*/_react.default.createElement(_AboutUs.default, null)
   }, {
-    path: 'contact',
+    path: '/contact',
     element: /*#__PURE__*/_react.default.createElement(_ContactUs.default, null)
+  }, {
+    path: '/cart',
+    element: /*#__PURE__*/_react.default.createElement(_Cart.default, null)
+  }, {
+    path: '/restaurants/:resID',
+    element: /*#__PURE__*/_react.default.createElement(_RestaurantsMenu.default, null)
   }],
   errorElement: /*#__PURE__*/_react.default.createElement(_Error.default, null)
 }]);
 _client.default.createRoot(root).render( /*#__PURE__*/_react.default.createElement(_reactRouterDom.RouterProvider, {
   router: appRouter
 }));
-},{"react":"node_modules/react/index.js","react-dom/client":"node_modules/react-dom/client.js","./components/Header":"src/components/Header.jsx","./components/Body":"src/components/Body.jsx","react-router-dom":"node_modules/react-router-dom/dist/index.js","./components/AboutUs":"src/components/AboutUs.jsx","./components/ContactUs":"src/components/ContactUs.jsx","./components/Error":"src/components/Error.jsx"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom/client":"node_modules/react-dom/client.js","./components/Header":"src/components/Header.jsx","./components/Body":"src/components/Body.jsx","react-router-dom":"node_modules/react-router-dom/dist/index.js","./components/AboutUs":"src/components/AboutUs.jsx","./components/ContactUs":"src/components/ContactUs.jsx","./components/Error":"src/components/Error.jsx","./components/Cart":"src/components/Cart.jsx","./components/RestaurantsMenu":"src/components/RestaurantsMenu.jsx"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -38742,7 +38967,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54081" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58633" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

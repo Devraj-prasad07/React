@@ -1,73 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import RestroCard from "./RestroCard";
 import ShimmerUi from "./ShimmerUI";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useBodyData from "../utils/useBodyData";
+import useRestaurantFilters from "../utils/useRestaurantFilters";
 
 const Body = () => {
-  const [listOfRestro, setListOfRestro] = useState([]);
-  const [filteredList, setFilteredList] = useState([]);
-  const [searchText, setSearchText] = useState("");
-  const [isFiltered, setIsFiltered] = useState(false);
+  const BodyData = useBodyData();
+  const {
+    filteredList,
+    isFiltered,
+    searchText,
+    handleFilter,
+    clearFilters,
+    handleSearch,
+    handleSearchChange,
+  } = useRestaurantFilters(BodyData);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://www.swiggy.com/mapi/homepage/getCards?lat=22.260423&lng=84.8535844"
-      );
-      const json = await response.json();
-      const restaurants = json?.data?.success?.cards.flatMap(
-        (card) =>
-          card?.gridWidget?.gridElements?.infoWithStyle?.restaurants || []
-      );
-      const uniqueRestaurants = Array.from(
-        new Set(restaurants.map((restaurant) => restaurant?.info?.id))
-      ).map((id) =>
-        restaurants.find((restaurant) => restaurant?.info?.id === id)
-      );
-
-      setListOfRestro(uniqueRestaurants);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  const handleFilter = () => {
-    const dataList = listOfRestro.filter(
-      (restaurant) => parseFloat(restaurant?.info?.avgRating) < 4
+  const status = useOnlineStatus();
+  if (status === false)
+    return (
+      <h1>
+        It seems that you have not connected to the internet. Please connect it
+        or try again later.
+      </h1>
     );
-    setFilteredList(dataList);
-    setIsFiltered(true);
-  };
 
-  const handleSearch = () => {
-    const filteredRestro = listOfRestro.filter((restaurant) =>
-      restaurant?.info?.name?.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setFilteredList(filteredRestro);
-    setIsFiltered(true);
-  };
-
-  const clearFilters = () => {
-    setFilteredList([]);
-    setIsFiltered(false);
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
-    if (e.target.value === "") {
-      clearFilters();
-    }
-  };
-
-  return listOfRestro.length === 0 ? (
+  return BodyData.length === 0 ? (
     <ShimmerUi />
   ) : (
     <div className="body">
       <div className="subNavBar">
+
         {/* Search Button */}
         <div className="search">
           <div className="inputContainer">
@@ -83,6 +48,7 @@ const Body = () => {
             Search
           </button>
         </div>
+
         {/* Filter Button */}
         <div className="filter">
           <button className="filter-btn" onClick={handleFilter}>
@@ -92,10 +58,16 @@ const Body = () => {
             Clear Filter
           </button>
         </div>
+        
       </div>
       <div className="restro-container">
-        {(isFiltered ? filteredList : listOfRestro).map((restaurant) => (
-        <Link key={restaurant?.info?.id} to={"/restaurants/"+ restaurant?.info?.id}> <RestroCard resData={restaurant} /></Link> 
+        {(isFiltered ? filteredList : BodyData).map((restaurant) => (
+          <Link
+            key={restaurant?.info?.id}
+            to={"/restaurants/" + restaurant?.info?.id}
+          >
+            <RestroCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
